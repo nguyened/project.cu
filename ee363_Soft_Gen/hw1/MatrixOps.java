@@ -36,10 +36,18 @@ public class MatrixOps
 
     return result;
   };
-  // static double[][] transpose(double[][] a)
-  // {
-  //   return;
-  // };
+  static double[][] transpose(double[][] a)
+  {
+    double[][] result = new double[3][3];
+    for(int i = 0; i<3; i++)
+    {
+      for(int j = 0; j<3; j++)
+      {
+        result[j][i] = a[i][j];
+      }
+    }
+    return result;
+  };
   // static double[] mult(double[][] a, double[] x)
   // {
   //   return;
