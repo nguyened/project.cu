@@ -3,7 +3,7 @@
  *
  * @author Evan Nguyen
  *
- * @modified Sep 19, 2019
+ * @modified Sep 20, 2019
 */
 public class ClientMatrix
 {
@@ -35,6 +35,8 @@ public class ClientMatrix
     // }
     // Print2D(wtf);
     Print2DArry(MatrixOps.mult(mat1,mat2));
+    System.out.println("[transpose]");
+    Print2DArry(MatrixOps.transpose(mat2));
     System.out.println("[done]");
   }
 }
