@@ -1,4 +1,4 @@
-
+/* EE363 - HW1 - MatrixOps */
 
 public class MatrixOps
 {
@@ -48,12 +48,36 @@ public class MatrixOps
     }
     return result;
   };
-  // static double[] mult(double[][] a, double[] x)
-  // {
-  //   return;
-  // };
-  // static double[] mult(double[] y, double[][] a)
-  // {
-  //   return;
-  // };
+  // matrix-vector product
+  static double[] mult(double[][] a, double[] x)
+  {
+    //     where A columns = X rows
+    //     answer column size = X column size = 1
+    //     answer rows size = A row size
+    double[] result = new double[3];
+    for(int i = 0; i<3; i++)
+    {
+      for(int j = 0; j<3; j++)
+      {
+        result[i] +=  a[i][j]*x[i];
+      }
+    }
+    return result;
+  };
+  // vector-matrix product
+  static double[] mult(double[] y, double[][] a)
+  {
+    //     where A columns = Y rows
+    //     answer column size = Y column size = 1
+    //     answer rows size = A row size
+    double[] result = new double[3];
+    for(int i = 0; i<3; i++)
+    {
+      for(int j = 0; j<3; j++)
+      {
+        result[i] +=  a[i][j]*y[i];
+      }
+    }
+    return result;
+  };
 }
