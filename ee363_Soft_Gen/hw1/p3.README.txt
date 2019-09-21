@@ -1,2 +1,13 @@
+to run...
+
 javac -cp MatrixOps.class:. ClientMatrix.java 
 java ClientMatrix
+
+Running ClientMatrix will display all the vectors and matrices used.
+
+vector 1
+vector 2
+matrix 3x3
+matrix 3x2
+
+In addition it will run all five functions specified in MatrixOps and display the results. 
