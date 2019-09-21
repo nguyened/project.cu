@@ -20,10 +20,11 @@ public class MatrixOps
     // answer rows size = A row size
     int arrySizeRow = a.length;
     int arrySizeCol = b[0].length;
+    int arrySizeColA = a[0].length;
     double[][] result = new double[arrySizeRow][arrySizeCol]; // initialized to zero
     for(int i = 0; i<arrySizeRow; i++)
     {
-      for(int j = 0; j<arrySizeCol; j++)
+      for(int j = 0; j<arrySizeColA; j++)
       {
         for(int k = 0; k<arrySizeCol; k++)
         {
