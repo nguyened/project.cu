@@ -1,3 +1,5 @@
+// package edu.princeton.cs.algs4;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -11,6 +13,7 @@ public class Deque<Item> implements Iterable<Item>
   private class Node {
       private Item item;
       private Node next;
+      private Node prev;
   }
 
   /**
@@ -28,7 +31,7 @@ public class Deque<Item> implements Iterable<Item>
    * @return true if this queue is empty; false otherwise
    */
   public boolean isEmpty() {
-      return (first == null & last == null);
+      return first == null;
   }
 
   /**
@@ -44,24 +47,22 @@ public class Deque<Item> implements Iterable<Item>
    * @param item the item to add
    */
   public void pushLeft(Item item) {
-      Node oldfirst = first;
-      first = new Node();
-      first.item = item;
-      first.next = null;
-      if (isEmpty()) first = last;
-      else           oldfirst.next = first;
-      n++;
-      // assert check();
+    Node oldfirst = first;
+    first = new Node();
+    first.item = item;
+    first.next = oldfirst;
+    n++;
   }
   public void pushRight(Item item) {
-      Node oldlast = last;
-      last = new Node();
-      last.item = item;
-      last.next = null;
-      if (isEmpty()) first = last;
-      else           oldlast.next = last;
-      n++;
-      // assert check();
+    Node oldlast = last;
+    last = new Node();
+    last.item = item;
+    last.next = null;
+
+    if (isEmpty()) first = last;
+    else           oldlast.next = last;
+    last.prev = oldlast;
+    n++;
   }
 
   /**
@@ -70,24 +71,38 @@ public class Deque<Item> implements Iterable<Item>
    * @throws java.util.NoSuchElementException if this queue is empty
    */
   public Item popLeft() {
-      if (isEmpty()) throw new NoSuchElementException("Queue underflow L");
-      Item item = first.item;
-      first = first.next;
-      n--;
-      if (isEmpty()) last = null;   // to avoid loitering
-      // assert check();
-      return item;
+    if (isEmpty()) throw new NoSuchElementException("Queue underflow L");
+    Item item = first.item;
+    first = first.next;
+    n--;
+    if (isEmpty()) last = null;   // to avoid loitering
+    // assert check();
+    return item;
   }
 
   public Item popRight() {
       if (isEmpty()) throw new NoSuchElementException("Queue underflow R");
       Item item = last.item;
-      last = last.next;
+      last = last.prev;
+      last.next = null;
       n--;
       if (isEmpty()) first = null;   // to avoid loitering
       // assert check();
       return item;
   }
+
+
+  /**
+   * Returns a string representation of this queue.
+   * @return the sequence of items in FIFO order, separated by spaces
+   */
+  public String toString() {
+      StringBuilder s = new StringBuilder();
+      for (Item item : this)
+          s.append(item + " ");
+      return s.toString();
+  }
+
   public Iterator<Item> iterator()  {
       return new ListIterator();
   }
