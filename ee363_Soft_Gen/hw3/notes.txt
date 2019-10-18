@@ -1,0 +1,13 @@
+LinkedQueue (single list)
+
+compile: javac -cp algs4.jar:stdlib.jar:. LinkedQueue.java
+
+execute: java -cp algs4.jar:stdlib.jar:. edu.princeton.cs.algs4.LinkedQueue < tobe.txt
+
+
+
+javac -cp algs4.jar:stdlib.jar:. Deque.java
+
+javac -cp algs4.jar:stdlib.jar:. QDriver.java
+
+java -cp algs4.jar:stdlib.jar:. QDriver
