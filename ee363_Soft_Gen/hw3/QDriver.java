@@ -31,7 +31,6 @@ public class QDriver {
 
     public static  void test2() {
         StdOut.println("\nTest2:");
-
         Deque<Double> deque = new Deque<>();
         deque.pushRight(-87.50);
         deque.pushRight(100.0);
